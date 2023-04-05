@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>User Dashboard</title>
+</head>
+<body>
+	<section>
+
+		<div class="card mr-3 ml-3">
+
+			<div class="card-body">
+
+				<h1 class="text-center" th:text="${title}"></h1>
+
+				<div class="container-fluid mt-1">
+				
+					<div class="row">
+					
+						<div class="col-md-8 offset-md-2">
+						
+							<form action="#" th:object="${contact}"
+								enctype="multipart/form-data" method="post"
+								th:action="@{user/add-contact}" class="mt-2">
+								
+
+								<!--First Name  -->
+								<div class="col-auto">
+									<label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+									<div class="input-group">
+										<div class="input-group-text"><i class="fa fa-plus"></i></div>
+										<input  required="required" type="text" class="form-control" name="name" id="name" placeholder="Enter name here">
+									</div>
+								</div>
+									<!--Second Name  -->
+								<div class="col-auto mt-3">
+									<label class="visually-hidden" for="autoSizingInputGroup">Nickname</label>
+									<div class="input-group">
+										<div class="input-group-text"><i class="fas fa-user-alt"></i></div>
+										<input  required="required" type="text" class="form-control" name="secondName" id="secondname" placeholder="Enter Nickname">
+									</div>
+								</div>
+										<!--Phone Field  -->
+								<div class="col-auto mt-3">
+									<label class="visually-hidden" for="autoSizingInputGroup">Phone Number</label>
+									<div class="input-group">
+										<div class="input-group-text"><i class="fa fa-phone"></i></div>
+										<input  required="required" pattern="[0-9]{4}" type="number" class="form-control" name="phone" id="phone" placeholder="Enter Phone Number">
+									</div>
+								</div>
+								
+										<!--  Email field  -->
+								<div class="col-auto mt-3">
+									<label class="visually-hidden" for="autoSizingInputGroup">Email</label>
+									<div class="input-group">
+										<div class="input-group-text">@</div>
+										<input required="required"  type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+									</div>
+								</div>
+								
+											<!--  Work field  -->
+								<div class="col-auto mt-3">
+									<label class="visually-hidden" for="autoSizingInputGroup">Work</label>
+									<div class="input-group">
+										<div class="input-group-text"><i class="fa fa-briefcase"></i></div>
+										<input  required="required" type="text" class="form-control" name="work" id="work" placeholder="Enter Work here">
+									</div>
+								</div>
+								
+												<!-- Contact desciption  -->
+								<div class="form-group mt-3">
+									<textarea id="mytextarea" name="description" class="form-control" placeholder="Enter Contact Description" rows="20" cols="30"></textarea>
+								
+								</div>
+								<!--contact image field  -->
+								<div class="custom-file mt-2">
+								<input   type="file" name="profileImage"/>
+								</div>
+								<!-- Add contact button -->
+								<div class="container text-center mt-2">
+									<button class="btn btn-outline-primary">Save Contact</button>
+								</div>
+							</form>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		<!-- rich text -->
+		<script>
+			tinymce.init({
+				selector : '#mytextarea'
+			});
+		</script>
+	</section>
+
+</body>
+</html>
